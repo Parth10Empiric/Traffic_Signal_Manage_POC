@@ -94,44 +94,69 @@ while True:
     # =========================
     if current_time >= signal_end_time:
 
-        lane_data = []
+        # lane_data = []
+        next_lane_id = (last_lane + 1) % 4
 
         with lock:
-            frames_copy = latest_frames.copy()
+            # frames_copy = latest_frames.copy()
+            next_lane_frame = latest_frames[next_lane_id]
 
-        for i, frame in enumerate(frames_copy):
-            if frame is None:
-                continue
+        # for i, frame in enumerate(frames_copy):
+        #     if frame is None:
+        #         continue
 
-            vehicles = detector.detect(frame)
+        #     vehicles = detector.detect(frame)
 
+        #     count = len(vehicles)
+        #     density = get_density(count)
+
+        #     lane_info[i] = {
+        #         "count": count,
+        #         "density": density
+        #     }
+
+        #     lane_data.append({
+        #         "lane": i,
+        #         "count": count,
+        #         "wait": 5
+        #     })
+
+            
+        # selected = choose_lane(lane_data, last_lane)
+
+        # if selected:
+        #     current_green = selected["lane"]
+        #     last_lane = current_green
+
+        #     duration = get_signal_time(
+        #         # lane_info[current_green]["density"]
+        #         lane_info[current_green]["count"] 
+        #     )
+
+        #     signal_end_time = current_time + duration
+            
+            
+        if next_lane_frame is not None:
+            # 3. RUN YOLO ONLY ONCE (for the next lane)
+            vehicles = detector.detect(next_lane_frame)
+            
             count = len(vehicles)
             density = get_density(count)
 
-            lane_info[i] = {
+            # 4. Update the info for that specific lane
+            lane_info[next_lane_id] = {
                 "count": count,
                 "density": density
             }
 
-            lane_data.append({
-                "lane": i,
-                "count": count,
-                "wait": 5
-            })
-
-        selected = choose_lane(lane_data, last_lane)
-
-        if selected:
-            current_green = selected["lane"]
+            # 5. Set the light to Green
+            current_green = next_lane_id
             last_lane = current_green
 
-            duration = get_signal_time(
-                # lane_info[current_green]["density"]
-                lane_info[current_green]["count"] 
-            )
-
+            # 6. Decide duration based on that specific count
+            duration = get_signal_time(count)
             signal_end_time = current_time + duration
-            
+
 
     # =========================
     # DISPLAY (SMOOTH)
