@@ -23,3 +23,5 @@ COUNT_WEIGHT = 0.7
 WAIT_WEIGHT = 0.3
 
 MAX_WAIT_TIME = 90  # Max wait time in seconds before a lane gets emergency priority
+
+# RED_SIGNAL_COOLDOWN = 45  # Minimum time a lane must wait after being green before it can be green again
