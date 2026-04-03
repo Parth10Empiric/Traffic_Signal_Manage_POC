@@ -8,7 +8,7 @@
 * 🚗 Vehicle detection using YOLOv8
 * 📊 Dynamic traffic density calculation
 * ⏱️ Adaptive signal timing (based on vehicle count)
-* 🔄 Intelligent lane switching (round-robin with AI prioritization)
+* 🔄 Intelligent lane switching (round-robin)
 * 🟢 Smooth video playback on GREEN signal (~25–30 FPS)
 * 🔴 Frame freeze on RED signal (at 00:00)
 * 🟡 Transition phase handling (YELLOW signal)
@@ -59,32 +59,6 @@ next_lane = (last_lane + 1) % 4
 
 ---
 
-## 🧠 System Architecture
-
-```
-START SYSTEM
-│
-├── Initialize all lanes → RED
-├── Lane 0 → GREEN (initial)
-│
-├── While system running:
-│   │
-│   ├── GREEN Phase
-│   │   ├── Show smooth video (live playback)
-│   │   ├── Countdown timer
-│   │   ├── Before end → detect next lane traffic
-│   │
-│   ├── YELLOW Phase (3 sec)
-│   │   ├── Transition state
-│   │
-│   ├── SWITCH
-│   │   ├── Choose next lane
-│   │   ├── Calculate time dynamically
-│   │
-└── Repeat loop
-```
-
----
 
 ## 🖼️ Detection Output
 
