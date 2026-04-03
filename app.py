@@ -126,7 +126,7 @@ def control_loop():
 
         # 🔥 PRE-DETECTION (last 5 sec)
         if (
-            remaining <= 5 and
+            remaining <= 10 and
             not detecting and
             not detection_result["ready"] and
             (now - last_detection_time > DETECTION_COOLDOWN)
