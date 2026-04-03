@@ -325,6 +325,7 @@ while True:
 
             st.write(f"Count: {lane_info[i]['count']}")
             st.write(f"Density: {lane_info[i]['density']}")
+            st.write(f"Time Remaining: {int(signal_end_time - current_time) if i == current_green else 0}s")
 
     # SAVE STATE
     st.session_state.current_green = current_green
