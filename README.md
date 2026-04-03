@@ -99,21 +99,32 @@ git clone https://github.com/Parth10Empiric/Traffic_Signal_Manage_POC.git
 cd Traffic_Signal_Manage_POC
 ```
 
-### 2. Install Dependencies
+### 2. Create Virtual Environment & Activate
+
+```
+python -m venv venv
+
+venv\Scripts\activate       # Windows
+source venv/bin/activate    # Linux / Mac
+```
+
+### 3. Install Dependencies
 
 ```
 pip install -r requirements.txt
 ```
 
-### 3. Download YOLO Model
+### 4. Download YOLO Model
 
 ```
 mkdir models
 # place yolov8x.pt inside models/
 ```
 
-### 4. Run App
+### 5. Run App
 
 ```
 streamlit run main.py
 ```
+
+
