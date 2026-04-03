@@ -88,10 +88,15 @@ START SYSTEM
 
 ## 🖼️ Detection Output
 
-![Lane 1](detected_frames/lane1.jpg)
-![Lane 2](detected_frames/lane2.jpg)
-![Lane 3](detected_frames/lane3.jpg)
-![Lane 4](detected_frames/lane4.jpg)
+<details>
+<summary>Click to view detection images</summary>
+
+![Lane 1](detected_frames/lane1.jpg)  
+![Lane 2](detected_frames/lane2.jpg)  
+![Lane 3](detected_frames/lane3.jpg)  
+![Lane 4](detected_frames/lane4.jpg)  
+
+</details>
 
 ---
 
@@ -101,9 +106,13 @@ START SYSTEM
 
 ![Streamlit Output](detected_frames/Streamlit_output.png)
 
-### Output
+<details>
+<summary>Click to view output</summary>
 
+### Final Output  
 ![Final Output](detected_frames/small_output.png)
+
+</details>
 
 ---
 
